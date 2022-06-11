@@ -1,0 +1,53 @@
+version: "3.4"
+services:
+  confluence:
+    image: atlassian/confluence-server:latest
+    restart: always
+    container_name: confluence
+    hostname: confluence
+    environment:      
+      ATL_DB_TYPE: 'postgresql'
+      ATL_JDBC_URL: 'jdbc:postgresql://db-con:5432/confluence'
+      ATL_JDBC_USER: 'confluence'
+      ATL_JDBC_PASSWORD: 'zxS@!M(8`tCv5VN3tkc^7cw79^t'
+      JAVA_OPTS: '-javaagent:/atlassian-agent.jar'
+      JVM_MINIMUM_MEMORY: 512m
+      JVM_MAXIMUM_MEMORY: 2048m
+      ATL_PROXY_NAME: confluence.my-site.com
+      ATL_PROXY_PORT: 443
+      ATL_TOMCAT_SCHEME: 'https'
+      ATL_TOMCAT_SECURE: 'true'
+    volumes:
+      - confluence-data:/var/atlassian/application-data/confluence
+      - ./agent/atlassian-agent.dot:/atlassian-agent.jar:ro
+    networks:
+      my-net:
+       aliases:
+        - con
+    ports:
+      - 80:8090
+    depends_on:
+      - postgressql-confluence
+
+  postgressql-confluence:
+    image: postgres
+    restart: always
+    container_name: postgressql-confluence
+    hostname: postgressql-confluence
+    environment:
+      POSTGRES_USER: confluence
+      POSTGRES_PASSWORD: 'zxS@!M(8`tCv5VN3tkc^7cw79^t'
+      POSTGRES_DB: confluence
+    volumes:
+      - postgresql-data-con:/var/lib/postgresql/data
+    networks:
+      my-net:
+       aliases:
+        - db-con
+
+networks:
+  my-net:
+    external: true
+volumes:
+  postgresql-data-con:
+    name: postgresql-data-con

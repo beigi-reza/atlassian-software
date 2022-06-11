@@ -1,0 +1,54 @@
+version: "3.4"
+services:
+  jira:
+    image: atlassian/jira-software:8.22.2
+    restart: always
+    container_name: jira
+    hostname: jira
+    environment:      
+      ATL_DB_DRIVER: 'org.postgresql.Driver'
+      ATL_DB_TYPE: 'postgres72'
+      ATL_JDBC_URL: 'jdbc:postgresql://db-jira:5432/jira'
+      ATL_JDBC_USER: 'jira'
+      ATL_JDBC_PASSWORD: 'Nz-!M(8`tCSTT:kc^7cw79^t'
+      ATL_TOMCAT_SCHEME: 'https'
+      ATL_TOMCAT_SECURE: 'true'
+      ATL_PROXY_PORT: '443'
+      ATL_PROXY_NAME: 'jira.my-site.com'
+      JAVA_OPTS: '-javaagent:/atlassian-agent.jar'
+      JVM_MINIMUM_MEMORY: 512m
+      JVM_MAXIMUM_MEMORY: 2048m
+    volumes:
+      - jira-vol:/var/atlassian/application-data/jira
+      - ./agent/atlassian-agent.dot:/atlassian-agent.jar:ro
+    networks:
+      my-net:
+    depends_on:
+      - postgressql-jira
+    ports:
+      - localhost:8080:8080
+
+  postgressql-jira:
+    image: postgres
+    restart: always
+    container_name: postgressql-jira
+    hostname: postgressql-jira
+    environment:
+      POSTGRES_USER: jira
+      POSTGRES_PASSWORD: 'Nz-!M(8`tCSTT:kc^7cw79^t'
+    volumes:
+      - postgresql-data-jira:/var/lib/postgresql/data
+    networks:
+      my-net:
+       aliases:
+        - db-jira
+
+networks:
+  my-net:
+    external: true
+volumes:
+  postgresql-data-jira:
+    name: postgresql-data-jira
+  jira-vol:
+    name: jira-vol
+
