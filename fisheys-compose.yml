@@ -1,0 +1,67 @@
+
+#      ____     __                  ____      _____             _ __   __   
+#     / _(_)__ / /  ___ __ _____   / __/___  / ___/_____ ______(_) /  / /__ 
+#    / _/ (_-</ _ \/ -_) // / -_)  > _/_ _/ / /__/ __/ // / __/ / _ \/ / -_)
+#   /_//_/___/_//_/\__/\_, /\__/  |_____/   \___/_/  \_,_/\__/_/_.__/_/\__/ 
+#                     /___/                                                 
+#   Docker Compose for Run Fisheye & Crucible
+#   Test for Fisheye Server 9.x
+#   Need  "my-net" Network for Run this File
+#   docker network create --driver bridge --subnet=150.50.50.0/24 my-net
+
+version: "3.4"
+services:
+  fisheye:
+    image: atlassian/fisheye:latest
+    restart: always
+    container_name: fisheye
+    hostname: fisheye
+    environment:
+      FECRU_CONFIGURE_DB_TYPE: postgresql
+      FECRU_CONFIGURE_DB_HOST: db-fisheye
+      FECRU_CONFIGURE_DB_PORT: '5432'
+      FECRU_CONFIGURE_DB_USER: fisheye
+      FECRU_CONFIGURE_DB_PASSWORD: 'PZz-0oOmnW#fgT:kc^7c'
+      FISHEYE_OPTS: '-javaagent:/atlassian-agent.jar'
+      JVM_MINIMUM_MEMORY: 512m
+      JVM_MAXIMUM_MEMORY: 2048m
+      #   If Use Reverse Proxy Uncomment this Line
+      #ATL_TOMCAT_SCHEME: 'https'
+      #ATL_TOMCAT_SECURE: 'true'
+      #ATL_PROXY_PORT: '443'
+      #ATL_PROXY_NAME: 'fisheye.my-site.com'
+
+    volumes:
+      - fisheye-vol:/atlassian/data/fisheye
+      - ./crack/atlassian-agent-new.jar:/atlassian-agent.jar:ro
+    networks:
+      ronix-net:
+       aliases:
+        - fish
+    ports:
+      - 8088:8080 
+
+  postgressql-fisheye:
+    image: postgres
+    restart: always
+    container_name: postgressql-fisheye
+    hostname: postgressql-fisheye
+    environment:
+      POSTGRES_USER: fisheye
+      POSTGRES_PASSWORD: 'PZz-0oOmnW#fgT:kc^7c'
+      POSTGRES_DB: fisheye
+    volumes:
+      - postgresql-data-fisheye:/var/lib/postgresql/data
+    networks:
+      ronix-net:
+       aliases:
+        - db-fisheye
+
+networks:
+  ronix-net:
+    external: true
+volumes:
+  postgresql-data-fisheye:
+    name: postgresql-data-fisheye
+  fisheye-vol:
+    name: fisheye-vol

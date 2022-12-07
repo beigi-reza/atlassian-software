@@ -35,7 +35,7 @@ volumes:
 ```
 
 
-## Jira
+## Run Jira
 run [jira-compose.yml](/jira-compose.yml)
 
 ```bash
@@ -43,7 +43,7 @@ docker-compose -f jira-compose.yml up -d
 ```
 > Use `http://<ip>:8080`
 
-## Confluence
+## Run Confluence
 
 run [confluence-compose.yml](/confluence-compose.yml)
 
@@ -52,7 +52,7 @@ docker-compose -f confluence-compose.yml up -d
 ```
 > Use `http://<ip>:8090`
 
-## bitbucket
+## Run bitbucket
 
 run [bitbucket-compose.yml](/bitbucket-compose.yml)
 
@@ -61,7 +61,26 @@ docker-compose -f confluence-compose.yml up -d
 ```
 > Use `http://<ip>:8090`
 
+## Run Bamboo
 
+run [bamboo-compose.yml](/bamboo-compose.yml)
+
+```bash
+docker-compose -f bamboo-compose.yml up -d
+```
+> Use `http://<ip>:8085`
+
+# P.S
+[Jira Images](https://hub.docker.com/r/atlassian/jira-software)
+
+## Run Fisheye & Crucible
+
+run [fisheys-compose.yml](/fisheys-compose.yml)
+
+```bash
+docker-compose -f fisheys-compose.yml up -d
+```
+> Use `http://<ip>:8088`
 
 # P.S
 [Jira Images](https://hub.docker.com/r/atlassian/jira-software)

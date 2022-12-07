@@ -32,9 +32,9 @@ services:
 
     volumes:
       - bitbucket-Data:/var/atlassian/application-data/bitbucket
-      - ./crack/atlassian-agent-new.jar:/atlassian-agent.jar:ro
+      - ./agent/atlassian-agent-new.jar:/atlassian-agent.jar:ro
     networks:
-      ronix-net:
+      my-net:
        aliases:
         - bit
     ports:
@@ -54,7 +54,7 @@ services:
     volumes:
       - bitbucketDbVolume:/var/lib/postgresql/data
     networks:
-      ronix-net:
+      my-net:
        aliases:
         - bit-db        
         
