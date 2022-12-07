@@ -1,3 +1,14 @@
+# 
+#                 _____                        ____     _____                     
+#  _______  ___  / _/ /_ _____ ___  _______   / __/__  / _/ /__    _____ ________ 
+# / __/ _ \/ _ \/ _/ / // / -_) _ \/ __/ -_) _\ \/ _ \/ _/ __/ |/|/ / _ `/ __/ -_)
+# \__/\___/_//_/_//_/\_,_/\__/_//_/\__/\__/ /___/\___/_/ \__/|__,__/\_,_/_/  \__/ 
+#                                                                                 
+#   Docker Compose for Run confluence  
+#   Test for Jira Server 7.x
+#   Need  "my-net" Network for Run this File
+#   docker network create --driver bridge --subnet=150.50.50.0/24 my-net
+
 version: "3.4"
 services:
   confluence:
@@ -9,14 +20,14 @@ services:
       ATL_DB_TYPE: 'postgresql'
       ATL_JDBC_URL: 'jdbc:postgresql://db-con:5432/confluence'
       ATL_JDBC_USER: 'confluence'
-      ATL_JDBC_PASSWORD: 'zxS@!M(8`tCv5VN3tkc^7cw79^t'
+      ATL_JDBC_PASSWORD: 'o3B5\U[4Edt03dBP/Miv'
       JAVA_OPTS: '-javaagent:/atlassian-agent.jar'
       JVM_MINIMUM_MEMORY: 512m
       JVM_MAXIMUM_MEMORY: 2048m
-      ATL_PROXY_NAME: confluence.my-site.com
-      ATL_PROXY_PORT: 443
-      ATL_TOMCAT_SCHEME: 'https'
-      ATL_TOMCAT_SECURE: 'true'
+      #ATL_PROXY_NAME: confluence.my-site.com
+      #ATL_PROXY_PORT: 443
+      #ATL_TOMCAT_SCHEME: 'https'
+      #ATL_TOMCAT_SECURE: 'true'
     volumes:
       - confluence-data:/var/atlassian/application-data/confluence
       - ./agent/atlassian-agent.dot:/atlassian-agent.jar:ro
@@ -25,7 +36,8 @@ services:
        aliases:
         - con
     ports:
-      - 80:8090
+      - 8090:8090
+      - 8091:8091
     depends_on:
       - postgressql-confluence
 
@@ -36,7 +48,7 @@ services:
     hostname: postgressql-confluence
     environment:
       POSTGRES_USER: confluence
-      POSTGRES_PASSWORD: 'zxS@!M(8`tCv5VN3tkc^7cw79^t'
+      POSTGRES_PASSWORD: 'o3B5\U[4Edt03dBP/Miv'
       POSTGRES_DB: confluence
     volumes:
       - postgresql-data-con:/var/lib/postgresql/data
@@ -51,3 +63,5 @@ networks:
 volumes:
   postgresql-data-con:
     name: postgresql-data-con
+  confluence-data:
+    name: confluence-data

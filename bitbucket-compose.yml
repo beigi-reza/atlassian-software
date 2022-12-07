@@ -1,0 +1,72 @@
+#
+#   __   _ __  __            __       __    ____     _____                     
+#  / /  (_) /_/ /  __ ______/ /_____ / /_  / __/__  / _/ /__    _____ ________ 
+# / _ \/ / __/ _ \/ // / __/  '_/ -_) __/ _\ \/ _ \/ _/ __/ |/|/ / _ `/ __/ -_)
+#/_.__/_/\__/_.__/\_,_/\__/_/\_\\__/\__/ /___/\___/_/ \__/|__,__/\_,_/_/  \__/ 
+#                                                                              
+#   Docker Compose for Run bitbucket
+#   Test for bitbucket Server 7.x
+#   Need  "my-net" Network for Run this File
+#   docker network create --driver bridge --subnet=150.50.50.0/24 my-net
+
+version: '3.4'
+services:
+  bitbucket:
+    image: "atlassian/bitbucket-server:latest"    
+    container_name: bitbucket
+    hostname: bitbucket
+    restart: always
+    environment:
+      BITBUCKET_HOME: /var/atlassian/application-data/bitbucket/
+      JAVA_OPTS: '-javaagent:/atlassian-agent.jar'
+      JDBC_DRIVER: org.postgresql.Driver
+      JDBC_URL: 'jdbc:postgresql://db:5432/bitbucket'
+      JDBC_USER: bitbucket
+      JDBC_PASSWORD: 'X&/LmRJDsw3wJf<30j39'
+      #SERVER_SCHEME: 'https'
+      #SERVER_SECURE: 'true'
+      #SERVER_PROXY_PORT: '443'
+      #SERVER_PROXY_NAME: 'bitbucket.mysite.com'
+      JVM_MINIMUM_MEMORY: 512m
+      JVM_MAXIMUM_MEMORY: 2048m
+
+    volumes:
+      - bitbucket-Data:/var/atlassian/application-data/bitbucket
+      - ./crack/atlassian-agent-new.jar:/atlassian-agent.jar:ro
+    networks:
+      ronix-net:
+       aliases:
+        - bit
+    ports:
+      - 7990:7990
+      - 7999:7999
+  db:
+    image: postgres:9.6
+    container_name: bitbucket-database
+    hostname: bitbucket-database
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: 'X&/LmRJDsw3wJf<30j39'
+      POSTGRES_USER: bitbucket
+      POSTGRES_DB: bitbucket
+    volumes:
+      - bitbucketDbVolume:/var/lib/postgresql/data
+    networks:
+      ronix-net:
+       aliases:
+        - bit-db        
+        
+volumes:
+ bitbucket-Data:
+   name: bitbucket-Data
+ bitbucketDbVolume:
+   name: bitbucketDbVolume
+
+networks:
+  ronix-net:
+    external: true
+
+
+

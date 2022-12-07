@@ -12,7 +12,7 @@
 version: "3.4"
 services:
   jira:
-    image: atlassian/jira-software    
+    image: atlassian/jira-software:latest
     restart: always
     container_name: jira
     hostname: jira
