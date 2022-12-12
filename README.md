@@ -62,7 +62,7 @@ docker-compose -f servicemanagement-compose.yml up -d
 
 Moved Here : [activateAtlassianSoftware.md](activateAtlassianSoftware.md)
 
-## Config Reverse Proxy
+##  Use Reverse Proxy
 
 Moved Here : [Reverse-Proxy-for-Atlassian.md](Reverse-Proxy-for-Atlassian.md)
 # P.S

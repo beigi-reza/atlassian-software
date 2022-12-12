@@ -8,7 +8,7 @@ If Each of Atlassian Software run behind a reverse proxy server (e.g. a load-bal
 appropriate values.
    -  `<SCHEME>` Protocol **http/https**
    -  `<SECURE>` Set `true` if `<SCHEME>` is `https`
-   -  `<PROXY_PORT>` The reverse proxy's port number via which Jira is accessed
+   -  `<PROXY_PORT>` The reverse proxy's port number via which Application is accessed
    - `<PROXY_NAME>` The reverse proxy's fully qualified hostname
 
 
