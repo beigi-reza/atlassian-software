@@ -1,5 +1,4 @@
-# Atlassian Software Docker Compose with Activate
-
+# Atlassian Software Docker Compose + Activate
 This prject run & crack Attlasian software as docker container, All programs can be run behind a reverse proxy
 
 
