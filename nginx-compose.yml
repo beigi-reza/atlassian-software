@@ -1,0 +1,31 @@
+# 
+#   
+#       _   __      _                  ____                                                              
+#      / | / /___ _(_)___  _  __      / __ \___ _   _____  _____________     ____  _________  _  ____  __
+#     /  |/ / __ `/ / __ \| |/_/_____/ /_/ / _ \ | / / _ \/ ___/ ___/ _ \   / __ \/ ___/ __ \| |/_/ / / /
+#    / /|  / /_/ / / / / />  </_____/ _, _/  __/ |/ /  __/ /  (__  )  __/  / /_/ / /  / /_/ />  </ /_/ / 
+#   /_/ |_/\__, /_/_/ /_/_/|_|     /_/ |_|\___/|___/\___/_/  /____/\___/  / .___/_/   \____/_/|_|\__, /  
+#         /____/                                                         /_/                    /____/   
+#   Docker Compose for Run Nginx
+#   Need  "my-net" Network for Run this File
+#   docker network create --driver bridge --subnet=150.50.50.0/24 my-net
+
+version: "3.4"
+services:
+  nginx:
+    restart: always
+    image: nginx:latest
+    container_name: nginx
+    hostname: nginx
+    networks:
+      - my-net
+    volumes:
+     - ./nginx:/etc/nginx/conf.d:ro
+     - ./ssl:/etc/nginx/ssl:ro
+    ports:
+     - 80:80
+     - 443:443      
+networks:
+  my-net:
+    external: true
+
