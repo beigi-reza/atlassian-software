@@ -3,7 +3,7 @@
 This prject run & crack Attlasian software as docker container, All programs can be run behind a reverse proxy
 
 
-## reverse proxy
+## Config Reverse Proxy
 If Each of Atlassian Software run behind a reverse proxy server (e.g. a load-balancer or nginx server), then you need to specify extra options to make Software aware of the setup. They can be controlled via the below environment variables.
 **uncomment this line in compose file** and correction this 
 
@@ -36,7 +36,8 @@ volumes:
 ```
 
 
-## Run Jira
+## Run Application
+### Jira
 run [jira-compose.yml](/jira-compose.yml)
 
 ```bash
@@ -44,7 +45,7 @@ docker-compose -f jira-compose.yml up -d
 ```
 > Use `http://<ip>:8080`
 
-## Run Confluence
+### Confluence
 
 run [confluence-compose.yml](/confluence-compose.yml)
 
@@ -53,7 +54,7 @@ docker-compose -f confluence-compose.yml up -d
 ```
 > Use `http://<ip>:8090`
 
-## Run bitbucket
+### bitbucket
 
 run [bitbucket-compose.yml](/bitbucket-compose.yml)
 
@@ -62,7 +63,7 @@ docker-compose -f confluence-compose.yml up -d
 ```
 > Use `http://<ip>:8090`
 
-## Run Bamboo
+### Bamboo
 
 run [bamboo-compose.yml](/bamboo-compose.yml)
 
@@ -71,7 +72,7 @@ docker-compose -f bamboo-compose.yml up -d
 ```
 > Use `http://<ip>:8085`
 
-## Run Fisheye & Crucible
+### Fisheye & Crucible
 
 run [fisheys-compose.yml](/fisheys-compose.yml)
 
@@ -81,7 +82,7 @@ docker-compose -f fisheys-compose.yml up -d
 > Use `http://<ip>:8088`
 
 
-## Run Jira Server Manegment (Service Desk)
+### Jira Server Manegment (Service Desk)
 
 run [servicemanagement-compose.yml](/servicemanagement-compose.yml)
 
@@ -93,6 +94,6 @@ docker-compose -f servicemanagement-compose.yml up -d
 
 ## Active Software
 
-
+Moved Here : [activate.md](activate.md)
 # P.S
 [Jira Images](https://hub.docker.com/r/atlassian/jira-software)
