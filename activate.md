@@ -5,7 +5,7 @@ Open Application on browser
 
 Enter the requested information, When asked for license
 
-run atlassian-agent.jar in Application container
+run `atlassian-agent.jar` in Application container
 
 docker exec **`<container_name>`** java -jar atlassian-agent.jar -m **`<email>`** -o **`<organisation>`** -p **`<product>`** -s **`<ServerID>`**
 
@@ -34,8 +34,13 @@ List of Product Support
 - `bitbucket` : **Bitbucket**
 - `bamboo` : **Bamboo**
 - `fisheye` : **FishEye**
+- `questions`: **Questions plugin for Confluence**
+- `crowd` : **Crowd**
+- `capture`: **Capture plugin for JIRA**
+- `training`: **Training plugin for JIRA**
+- `tc`: **Team Calendars plugin for Confluence**
+- `portfolio` : **Portfolio plugin for JIRA**
 - `*` : **Third party plugin key**
-
 
 ## example
 
@@ -44,5 +49,11 @@ docker exec jira java -jar /atlassian-agent.jar -m my@email.com -o mycompany -p 
 ```
 
 
-# PS
+## Refrence & Links
+
 https://zhile.io/
+
+https://github.com/hgqapp/atlassian-agent
+
+https://gitee.com/gfly/atlassian-agent
+
