@@ -1,38 +1,5 @@
 # Atlassian Software Docker Compose + Activate
-This prject run & crack Attlasian software as docker container, All programs can be run behind a reverse proxy
-
-
-## Config Reverse Proxy
-If Each of Atlassian Software run behind a reverse proxy server (e.g. a load-balancer or nginx server), then you need to specify extra options to make Software aware of the setup. They can be controlled via the below environment variables.
-**uncomment this line in compose file** and correction this 
-
-### jira, confluence, Bamboo, Fisheye, Crucible and jira-service Management
-
-```yml
-...
-environment:      
-  ...
-  ATL_TOMCAT_SCHEME: 'https'
-  ATL_TOMCAT_SECURE: 'true'
-  ATL_PROXY_PORT: '443'
-  ATL_PROXY_NAME: 'jira.mysite.com'
-  ...
-volumes:
-...
-```
-### bitbucket
-```yml
-...
-environment:      
-  ...
-  SERVER_SCHEME: 'https'
-  SERVER_SECURE: 'true'
-  SERVER_PROXY_PORT: '443'
-  SERVER_PROXY_NAME: 'bitbucket.mysite.com'
-  ...
-volumes:
-...
-```
+This prject run & Activate (crack) Attlasian software as docker container, All programs can be run behind a reverse proxy
 
 
 ## Run Application
@@ -94,5 +61,38 @@ docker-compose -f servicemanagement-compose.yml up -d
 ## Active Software
 
 Moved Here : [activate.md](activate.md)
+
+## Config Reverse Proxy
+If Each of Atlassian Software run behind a reverse proxy server (e.g. a load-balancer or nginx server), then you need to specify extra options to make Software aware of the setup. They can be controlled via the below environment variables.
+**uncomment this line in compose file** and correction this 
+
+### jira, confluence, Bamboo, Fisheye, Crucible and jira-service Management
+
+```yml
+...
+environment:      
+  ...
+  ATL_TOMCAT_SCHEME: 'https'
+  ATL_TOMCAT_SECURE: 'true'
+  ATL_PROXY_PORT: '443'
+  ATL_PROXY_NAME: 'jira.mysite.com'
+  ...
+volumes:
+...
+```
+### bitbucket
+```yml
+...
+environment:      
+  ...
+  SERVER_SCHEME: 'https'
+  SERVER_SECURE: 'true'
+  SERVER_PROXY_PORT: '443'
+  SERVER_PROXY_NAME: 'bitbucket.mysite.com'
+  ...
+volumes:
+...
+```
+
 # P.S
 [Jira Images](https://hub.docker.com/r/atlassian/jira-software)
