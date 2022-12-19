@@ -7,7 +7,7 @@
 #   Docker Compose for Run Bamboo Server
 #   Test for bitbucket Server 9.x
 #   Need  "my-net" Network for Run this File
-#   docker network create --driver bridge --subnet=150.50.50.0/24 my-net
+#   docker network create --driver bridge --subnet=10.10.10.0/24 ocsrv
 
 version: "3.4"
 services:
@@ -60,7 +60,7 @@ services:
         - db-bamboo
 
 networks:
-  ronix-net:
+  ocsrv:
     external: true
 volumes:
   postgresql-data-bamboo:
