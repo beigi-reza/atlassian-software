@@ -35,7 +35,7 @@ services:
       - fisheye-vol:/atlassian/data/fisheye
       - ./crack/atlassian-agent-new.jar:/atlassian-agent.jar:ro
     networks:
-      ronix-net:
+      my-net:
        aliases:
         - fish
     ports:
@@ -53,12 +53,12 @@ services:
     volumes:
       - postgresql-data-fisheye:/var/lib/postgresql/data
     networks:
-      ronix-net:
+      my-net:
        aliases:
         - db-fisheye
 
 networks:
-  ronix-net:
+  my-net:
     external: true
 volumes:
   postgresql-data-fisheye:

@@ -65,7 +65,7 @@ volumes:
    name: bitbucketDbVolume
 
 networks:
-  ronix-net:
+  my-net:
     external: true
 
 
