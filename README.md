@@ -3,6 +3,12 @@ This prject run & Activate (crack) Attlasian software as docker container, All p
 
 
 ## Run Application
+
+- Install Docker and Docker-compose.
+- Clone this Project
+- Run Compose File.
+- Done!
+
 ### Jira
 run [jira-compose.yml](/jira-compose.yml)
 
