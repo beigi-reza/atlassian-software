@@ -10,15 +10,18 @@ run `atlassian-agent.jar` in Application container
 
 docker exec **`<container_name>`** java -jar atlassian-agent.jar -m **`<email>`** -o **`<organisation>`** -p **`<product>`** -s **`<ServerID>`**
 
+Server ID is shown at License request step on **Application Setup wizard** 
+
+Copy ***Produced license*** to ***License request field*** & Click OK
+
+Enjoy :)
+
 ## example
 
 ```bash
 docker exec jira java -jar /atlassian-agent.jar -m my@email.com -o mycompany -p jc -s BFDY-ET5R-24G4-5B84
 ```
 
-
->NOTE : Server ID is shown at License request step on **Application Setup wizard** 
-Copy Produced license to License request field & Click OK
 
 
 ## -m,--mail
