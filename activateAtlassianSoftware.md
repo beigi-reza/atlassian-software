@@ -1,8 +1,6 @@
 # Activate Atlassiasn Software
 
 
-**Support for Atlassiasn Server products ends on Feb. 15, 2024, Use "`-d`" parameter for Generate Datacenter license**
-
 
 Open Application on browser
 
@@ -18,6 +16,12 @@ Server ID is shown at License request step on **Application Setup wizard**
 Copy ***Produced license*** to ***License request field*** & Click OK
 
 Enjoy :)
+
+
+## ACTIVE DATACENTER MODE
+
+**Support for Atlassiasn Server products ends on Feb. 15, 2024, Use "`-d`" parameter for Generate Datacenter license**
+
 
 ## example
 
