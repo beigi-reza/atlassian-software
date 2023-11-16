@@ -1,4 +1,4 @@
-# Atlassian Software Docker Compose + Activate
+# Atlassian Data Center Software - Docker Compose + Activate
 This prject run & Activate (crack) Attlasian software as docker container, All programs can be run behind a reverse proxy
 
 Persian 
@@ -9,7 +9,7 @@ Persian
 - Run Compose File.
 - Done!
 
-### Jira
+### Jira Software Data Center
 run [jira-compose.yml](/jira-compose.yml)
 
 ```bash
@@ -17,7 +17,7 @@ docker-compose -f jira-compose.yml up -d
 ```
 > Use `http://<ip>:8080`
 
-### Confluence
+### Confluence Server
 
 run [confluence-compose.yml](/confluence-compose.yml)
 
@@ -26,7 +26,7 @@ docker-compose -f confluence-compose.yml up -d
 ```
 > Use `http://<ip>:8090`
 
-### bitbucket
+### bitbucket Server
 
 run [bitbucket-compose.yml](/bitbucket-compose.yml)
 
@@ -35,7 +35,7 @@ docker-compose -f confluence-compose.yml up -d
 ```
 > Use `http://<ip>:8090`
 
-### Bamboo
+### Bamboo Server
 
 run [bamboo-compose.yml](/bamboo-compose.yml)
 
@@ -44,7 +44,7 @@ docker-compose -f bamboo-compose.yml up -d
 ```
 > Use `http://<ip>:8085`
 
-### Fisheye & Crucible
+### Fisheye & Crucible 
 
 run [fisheys-compose.yml](/fisheys-compose.yml)
 
