@@ -1,6 +1,9 @@
 # Activate Atlassiasn Software
 
 
+**Support for Atlassiasn Server products ends on Feb. 15, 2024, Use "`-d`" parameter for Generate Datacenter license**
+
+
 Open Application on browser
 
 Enter the requested information, When asked for license
@@ -19,10 +22,12 @@ Enjoy :)
 ## example
 
 ```bash
-docker exec jira java -jar /atlassian-agent.jar -m my@email.com -o mycompany -p jc -s BFDY-ET5R-24G4-5B84
+docker exec jira java -jar /atlassian-agent.jar -d -m my@email.com -o mycompany -p jc -s BFDY-ET5R-24G4-5B84
 ```
 
 
+## -d,--datacenter
+Data center license
 
 ## -m,--mail
 License email
