@@ -1,5 +1,5 @@
-# Atlassian Data Center Software - Docker Compose + Activate
-This prject run & Activate (crack) Attlasian Data Center software as docker container, All programs can be run behind a reverse proxy
+# Atlassian Software - Docker Compose + Activate
+This prject run & Activate (crack) Attlasian software as docker container, All programs can be run behind a reverse proxy
 
  
 ## Run Application
