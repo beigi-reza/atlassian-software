@@ -30,7 +30,7 @@ services:
       #ATL_TOMCAT_SECURE: 'true'
     volumes:
       - confluence-data:/var/atlassian/application-data/confluence
-      - ./agent/atlassian-agent.dot:/atlassian-agent.jar:ro
+      - ./agent/atlassian-agent.bak:/atlassian-agent.jar:ro
     networks:
       my-net:
        aliases:

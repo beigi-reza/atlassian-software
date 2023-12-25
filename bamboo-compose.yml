@@ -31,7 +31,7 @@ services:
       #ATL_PROXY_NAME: 'bamboo.my-site.com'
     volumes:
       - bamboo-vol:/var/atlassian/application-data/bamboo
-      - ./agent/atlassian-agent-new.jar:/atlassian-agent.jar:ro
+      - ./agent/atlassian-agent.bak:/atlassian-agent.jar:ro
     networks:
       my-net:
        aliases:

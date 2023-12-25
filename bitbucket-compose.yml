@@ -32,7 +32,7 @@ services:
 
     volumes:
       - bitbucket-Data:/var/atlassian/application-data/bitbucket
-      - ./agent/atlassian-agent-new.jar:/atlassian-agent.jar:ro
+      - ./agent/atlassian-agent.bak:/atlassian-agent.jar:ro
     networks:
       my-net:
        aliases:
